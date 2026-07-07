@@ -1,13 +1,15 @@
-# RefCompass
+# AutoRefactor Project Page
 
-A lightweight paper project website template designed for GitHub Pages.
+A lightweight static paper website for AutoRefactor, designed for GitHub Pages.
 
 ## Files
 
-- `index.html`: project page content
+- `index.html`: paper project page content
 - `styles.css`: page styling
-- `script.js`: small UI behaviors
-- `assets/preview-card.svg`: placeholder teaser graphic
+- `script.js`: navigation and demo placeholder behavior
+- `assets/paper/`: paper figures and preview images used by the page
+- `autorefactor-reproduction-package-release/`: public reproduction package linked from the Artifacts section
+- `downloads/`: grouped downloadable artifacts used by the Artifacts section
 
 ## Publish with GitHub Pages
 
@@ -20,7 +22,6 @@ A lightweight paper project website template designed for GitHub Pages.
 
 ## Customize
 
-- Replace the title, author list, and abstract in `index.html`
-- Update the action buttons to point to your paper PDF, code repo, dataset, and demo
-- Replace `assets/preview-card.svg` with your teaser figure or system overview
-- Paste your real BibTeX entry in the citation block
+- Replace the anonymous author line when the paper is no longer anonymous.
+- Replace the demo placeholder with the final screen recording.
+- Update the artifact cards with final paper, code, dataset, and video links.

@@ -1,0 +1,11 @@
+# macOS
+.DS_Store
+**/.DS_Store
+
+# 源录像 / 临时脚本
+*.mov
+scripts/
+
+# 超过 GitHub 100MB 限制的大文件，单独通过 Release / 外链分发
+assets/demo/autorefactor-demo.mp4
+downloads/project-snapshots.zip

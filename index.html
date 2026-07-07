@@ -3,223 +3,419 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>RefCompass | Paper Project</title>
+    <title>AutoRefactor | Reliable Repository-Level Refactoring</title>
     <meta
       name="description"
-      content="RefCompass is a paper project website template for showcasing your research, demo, code, and artifacts."
+      content="AutoRefactor is a research project on reliable repository-level code smell refactoring via historical refactoring replay and sketch-driven navigation."
     />
+    <meta name="theme-color" content="#f7faf6" />
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
-    <div class="page-shell">
-      <header class="hero">
-        <nav class="topbar">
-          <a class="brand" href="#top">RefCompass</a>
-          <div class="topbar-links">
-            <a href="#abstract">Abstract</a>
-            <a href="#highlights">Highlights</a>
-            <a href="#resources">Resources</a>
-            <a href="#citation">Citation</a>
-          </div>
-        </nav>
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="AutoRefactor home">
+        <span class="brand-mark">AR</span>
+        <span>AutoRefactor</span>
+      </a>
+      <nav class="nav-links" id="nav-links" aria-label="Main navigation">
+        <a href="#paper">Paper</a>
+        <a href="#approach">Approach</a>
+        <a href="#results">Evaluation</a>
+        <a href="#case-study">Case Study</a>
+        <a href="#demo">Demo</a>
+        <a href="#artifacts">Artifacts</a>
+      </nav>
+      <button class="nav-toggle" id="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false">
+        <span></span>
+        <span></span>
+      </button>
+    </header>
 
-        <section class="hero-grid" id="top">
+    <main id="top">
+      <section class="hero paper-grid">
+        <div class="page-shell hero-layout">
           <div class="hero-copy">
-            <p class="eyebrow">ICSE 2026 Submission Template</p>
-            <h1>RefCompass: A Research Project Page Ready for GitHub Pages</h1>
-            <p class="hero-text">
-              Replace this demo copy with your paper title, teaser figure, and
-              one-paragraph positioning. The layout is designed for project
-              pages that need to present the paper, method, benchmark, video,
-              and released artifacts in one screen-friendly flow.
+            <p class="eyebrow">ICSE 2027 paper project</p>
+            <h1>AutoRefactor: Towards Reliable Code Refactoring</h1>
+            <p class="subtitle">
+              Historical refactoring replay and sketch-driven navigation for
+              repository-level code smell refactoring.
             </p>
-            <div class="author-line">
-              <span>Your Name</span>
-              <span>Collaborator A</span>
-              <span>Collaborator B</span>
+            <div class="meta-row" aria-label="Paper metadata">
+              <span>12 projects</span>
+              <span>691 smell instances</span>
+              <span>9 smell types</span>
             </div>
-            <p class="affiliation">Your Lab or University</p>
             <div class="hero-actions">
-              <a class="button button-primary" href="#resources">Paper PDF</a>
-              <a class="button button-secondary" href="#resources">Code</a>
-              <a class="button button-secondary" href="#resources">Video</a>
+              <a class="button button-primary" href="#paper">Read paper overview</a>
+              <a class="button button-secondary" href="#results">View evaluation</a>
+              <a class="button button-secondary" href="#case-study">View case study</a>
             </div>
           </div>
+        </div>
+      </section>
 
-          <aside class="hero-panel">
-            <div class="panel-card panel-card-accent">
-              <p class="panel-kicker">Teaser</p>
-              <img
-                src="./assets/preview-card.svg"
-                alt="Preview illustration for the research project page"
-              />
-            </div>
-            <div class="panel-card">
-              <p class="panel-kicker">Snapshot</p>
-              <ul class="stat-list">
-                <li><strong>Task:</strong> Repository-level refactoring analysis</li>
-                <li><strong>Setting:</strong> Large-scale benchmark evaluation</li>
-                <li><strong>Outcome:</strong> Faster, clearer project communication</li>
-              </ul>
-            </div>
-          </aside>
-        </section>
-      </header>
-
-      <main>
-        <section class="section" id="abstract">
-          <div class="section-heading">
-            <p class="section-label">Abstract</p>
-            <h2>Tell readers what problem you solve and why it matters</h2>
+      <section class="section" id="paper">
+        <div class="page-shell split-heading">
+          <div class="section-intro">
+            <p class="eyebrow">Paper introduction</p>
+            <h2>Reliable refactoring needs executable plans, not only generated patches.</h2>
           </div>
-          <div class="abstract-card">
+          <div class="paper-summary">
             <p>
-              This template is intentionally shaped like a conference project
-              page. It gives you a clean place to publish your paper summary,
-              system diagram, benchmark claims, links to code and dataset, and
-              a citation block. Replace this paragraph with your abstract or a
-              polished project summary adapted from the paper.
+              Large language models can propose plausible refactoring directions,
+              but repository-level code smell refactoring requires coordinated
+              edits that preserve global behavior. AutoRefactor uses an executable
+              Refactoring Plan (Ref-Plan) as an intermediate representation,
+              combining IDE-native refactoring operations with AST-based edits.
+            </p>
+            <p>
+              The system mines real smell-removal history, replays candidate
+              Ref-Plans to keep only executable and effective examples, builds a
+              task-level Refactoring SPEC for new instances, and validates each
+              generated plan with executability, compilation, testing, and smell
+              elimination checks.
             </p>
           </div>
-        </section>
+        </div>
 
-        <section class="section" id="highlights">
-          <div class="section-heading">
-            <p class="section-label">Highlights</p>
-            <h2>Three contribution blocks work well for paper pages</h2>
-          </div>
-          <div class="feature-grid">
-            <article class="feature-card">
-              <p class="feature-index">01</p>
-              <h3>Problem Framing</h3>
-              <p>
-                Summarize the research gap, the target users, and the project
-                motivation in two or three sentences.
-              </p>
-            </article>
-            <article class="feature-card">
-              <p class="feature-index">02</p>
-              <h3>Method Overview</h3>
-              <p>
-                Add your architecture diagram, pipeline summary, or benchmark
-                workflow to explain how the method operates end to end.
-              </p>
-            </article>
-            <article class="feature-card">
-              <p class="feature-index">03</p>
-              <h3>Key Results</h3>
-              <p>
-                Highlight one or two memorable outcomes, such as accuracy,
-                time savings, quality gains, or adoption value.
-              </p>
-            </article>
-          </div>
-        </section>
+      </section>
 
-        <section class="section section-alt">
-          <div class="section-heading">
-            <p class="section-label">Method</p>
-            <h2>A simple visual timeline makes your story easier to scan</h2>
+      <section class="section section-tinted" id="approach">
+        <div class="page-shell">
+          <div class="section-intro narrow">
+            <p class="eyebrow">Approach</p>
+            <h2>From historical refactoring behavior to validated Ref-Plans.</h2>
+            <p>
+              AutoRefactor turns developer refactoring history into reusable
+              operation-level experience and applies that experience through a
+              structured, checkable generation pipeline.
+            </p>
           </div>
-          <div class="timeline">
-            <div class="timeline-step">
-              <span>1</span>
-              <div>
-                <h3>Collect Inputs</h3>
-                <p>Source code, issue context, benchmarks, or curated tasks.</p>
-              </div>
+
+          <div class="method-frame">
+            <img
+              src="./assets/paper/method-overview.png"
+              alt="AutoRefactor workflow with historical replay, SPEC construction, Ref-Plan generation, and validation"
+            />
+          </div>
+
+          <div class="process-grid">
+            <article>
+              <span>01</span>
+              <h3>Historical Ref-Plan replay</h3>
+              <p>
+                Recover candidate operations from real smell-removal commits,
+                replay them, and retain records that are both executable and
+                smell-eliminating.
+              </p>
+            </article>
+            <article>
+              <span>02</span>
+              <h3>Refactoring SPEC construction</h3>
+              <p>
+                Retrieve similar historical records and combine them with the
+                current smell location, involved entities, constraints, and goals.
+              </p>
+            </article>
+            <article>
+              <span>03</span>
+              <h3>Sketch-to-action navigation</h3>
+              <p>
+                Generate a high-level refactoring sketch first, then bind it to
+                concrete IDE and AST operations with explicit parameters.
+              </p>
+            </article>
+            <article>
+              <span>04</span>
+              <h3>Multi-level validation</h3>
+              <p>
+                Accept only plans that pass operation prechecks, compilation,
+                tests, and smell-removal validation; use feedback to repair plans.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="results">
+        <div class="page-shell section-intro narrow">
+          <p class="eyebrow">Evaluation</p>
+          <h2>Large-scale validation across projects, smells, and models.</h2>
+          <p>
+            AutoRefactor was evaluated on 691 instances from 12 open-source
+            Java projects and 9 code smell types. The evaluation compares
+            specialized refactoring tools, a general coding-agent baseline, and
+            ablated AutoRefactor variants.
+          </p>
+        </div>
+
+        <div class="page-shell metric-strip" aria-label="Key evaluation results">
+          <div>
+            <strong>90.93%</strong>
+            <span>end-to-end success rate</span>
+          </div>
+          <div>
+            <strong>+18.87 pp</strong>
+            <span>over SWE-agent overall</span>
+          </div>
+          <div>
+            <strong>23.1%</strong>
+            <span>lower token usage than SWE-agent</span>
+          </div>
+          <div>
+            <strong>91.44%</strong>
+            <span>average line coverage after test augmentation</span>
+          </div>
+        </div>
+
+        <div class="page-shell result-layout evaluation-detail">
+          <div>
+            <div class="result-callout">
+              <strong>Finding</strong>
+              <span>
+                Structured Ref-Plan generation improves both refactoring success
+                and resource cost under the same base model.
+              </span>
             </div>
-            <div class="timeline-step">
-              <span>2</span>
-              <div>
-                <h3>Run Your Method</h3>
-                <p>Explain the core analysis, model, or algorithm succinctly.</p>
-              </div>
+          </div>
+          <div class="quality-figure">
+            <img
+              src="./assets/paper/rq4-patch-quality.png"
+              alt="Human evaluation violin chart for AutoRefactor patch quality"
+            />
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-tinted" id="case-study">
+        <div class="page-shell">
+          <div class="case-header">
+            <p class="eyebrow">Case study</p>
+            <h2>Feature Envy Sample 4: why validated planning matters.</h2>
+            <p>
+              The target is Apache Commons Compress
+              <code>Segment.buildClassFile(int)</code>. The method repeatedly
+              accesses <code>ClassBands</code>, but it also coordinates class-file
+              assembly, constant-pool entries, source attributes, header defaults,
+              fields, interfaces, and bytecode metadata. A safe fix therefore
+              needs more than a direct move-method decision.
+            </p>
+          </div>
+
+          <div class="case-metrics" aria-label="Feature Envy Sample 4 metrics">
+            <div>
+              <strong>241.00</strong>
+              <span>feature-envy detector score</span>
             </div>
-            <div class="timeline-step">
-              <span>3</span>
-              <div>
-                <h3>Report Evidence</h3>
-                <p>Show quantitative results and one carefully chosen takeaway.</p>
-              </div>
+            <div>
+              <strong>17</strong>
+              <span>references to the related ClassBands object</span>
+            </div>
+            <div>
+              <strong>4/4</strong>
+              <span>AutoRefactor runs pass validation</span>
+            </div>
+            <div>
+              <strong>0/4</strong>
+              <span>comparison tools succeed on this instance</span>
             </div>
           </div>
-        </section>
 
-        <section class="section" id="resources">
-          <div class="section-heading">
-            <p class="section-label">Resources</p>
-            <h2>Keep all release artifacts in one place</h2>
-          </div>
-          <div class="resource-grid">
-            <a class="resource-card" href="#">
-              <strong>Paper</strong>
-              <span>Link to PDF or arXiv page</span>
-            </a>
-            <a class="resource-card" href="#">
-              <strong>Code</strong>
-              <span>GitHub repository or supplementary package</span>
-            </a>
-            <a class="resource-card" href="#">
-              <strong>Dataset</strong>
-              <span>Artifacts, benchmark data, or release archive</span>
-            </a>
-            <a class="resource-card" href="#">
-              <strong>Video</strong>
-              <span>Demo, talk recording, or poster presentation</span>
-            </a>
-          </div>
-        </section>
-
-        <section class="section section-split">
-          <div class="section-heading">
-            <p class="section-label">FAQ</p>
-            <h2>Short answers reduce reviewer and reader friction</h2>
-          </div>
-          <div class="faq-list">
-            <article class="faq-card">
-              <h3>What should go on a paper project page?</h3>
+          <div class="case-comparison">
+            <div class="case-panel case-claim">
+              <span>Observation</span>
               <p>
-                Start with title, authors, abstract, teaser figure, paper link,
-                code link, and one compact methods/results section.
+                A baseline tool can identify and apply a plausible move-method
+                change for this case, yet the resulting patch still fails
+                validation. The example illustrates why AutoRefactor treats
+                refactoring as a planned, checked repository-level change rather
+                than a single candidate transformation.
               </p>
-            </article>
-            <article class="faq-card">
-              <h3>Can I host this for free?</h3>
-              <p>
-                Yes. This repository is structured so GitHub Pages can publish
-                it directly from the root of the default branch.
-              </p>
-            </article>
-          </div>
-        </section>
+              <dl class="case-facts">
+                <div>
+                  <dt>Project</dt>
+                  <dd>commons-compress</dd>
+                </div>
+                <div>
+                  <dt>Method</dt>
+                  <dd>Segment.buildClassFile(int)</dd>
+                </div>
+                <div>
+                  <dt>Envied type</dt>
+                  <dd>ClassBands</dd>
+                </div>
+                <div>
+                  <dt>Reference test</dt>
+                  <dd>SegmentTest, 89.4% coverage</dd>
+                </div>
+              </dl>
+            </div>
 
-        <section class="section citation-section" id="citation">
-          <div class="section-heading">
-            <p class="section-label">Citation</p>
-            <h2>Include a copy-ready BibTeX block</h2>
-          </div>
-          <div class="citation-card">
-            <pre id="bibtex">@inproceedings{refcompass2026,
-  title={RefCompass: Your Paper Title Here},
-  author={Your Name and Collaborator A and Collaborator B},
-  booktitle={Proceedings of Your Target Venue},
-  year={2026}
-}</pre>
-            <button id="copy-citation" class="button button-primary" type="button">
-              Copy BibTeX
-            </button>
-          </div>
-        </section>
-      </main>
+            <div class="case-panel case-code">
+              <div class="case-code-title">
+                <span>Segment.java</span>
+                <span>source excerpt</span>
+              </div>
+              <pre aria-label="Relevant Java source excerpt"><code>private ClassFile buildClassFile(final int classNum) {
+    final ClassFile classFile = new ClassFile();
+    final int[] major = classBands.getClassVersionMajor();
+    final int[] minor = classBands.getClassVersionMinor();
+    if (major != null) {
+        classFile.major = major[classNum];
+        classFile.minor = minor[classNum];
+    } else {
+        classFile.major = header.getDefaultClassMajorVersion();
+        classFile.minor = header.getDefaultClassMinorVersion();
+    }
 
-      <footer class="footer">
-        <p>RefCompass Project Page Template</p>
-        <p>
-          Built for GitHub Pages. <span id="year"></span>
-        </p>
-      </footer>
-    </div>
+    final ClassConstantPool cp = classFile.pool;
+    final int fullNameIndexInCpClass = classBands.getClassThisInts()[classNum];
+    final String fullName = cpBands.getCpClass()[fullNameIndexInCpClass];
+    final List&lt;Attribute&gt; classAttributes =
+            classBands.getClassAttributes()[classNum];
+    // Interfaces, fields, methods, and class attributes are assembled here.
+}</code></pre>
+            </div>
+          </div>
+
+          <div class="case-table-wrap">
+            <table class="case-table" aria-label="Feature envy sample 4 comparison results">
+              <thead>
+                <tr>
+                  <th>Tool or run</th>
+                  <th>Outcome</th>
+                  <th>Validation summary</th>
+                  <th>Reader takeaway</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td data-label="Tool or run">
+                    <strong>AutoRefactor</strong>
+                    <span>GLM-4.7 / GPT-5 / GLM-4.5-Air / DeepSeek-V4-Flash</span>
+                  </td>
+                  <td data-label="Outcome"><span class="status-pill ok">4/4 Passed</span></td>
+                  <td data-label="Validation summary">
+                    All four model backends generate executable Ref-Plans and
+                    pass compilation, tests, and smell-elimination validation.
+                  </td>
+                  <td data-label="Reader takeaway">
+                    This case is not repaired by a one-off model response; it is
+                    consistently solved through a structured plan-execute-validate workflow.
+                  </td>
+                </tr>
+                <tr>
+                  <td data-label="Tool or run"><strong>MM-Assist</strong></td>
+                  <td data-label="Outcome"><span class="status-pill bad">Rejected</span></td>
+                  <td data-label="Validation summary">A move-method patch is applied, but it fails validation.</td>
+                  <td data-label="Reader takeaway">Finding a candidate is not enough if the final patch is not safe.</td>
+                </tr>
+                <tr>
+                  <td data-label="Tool or run"><strong>FETruth</strong></td>
+                  <td data-label="Outcome"><span class="status-pill warn">Not applicable</span></td>
+                  <td data-label="Validation summary">The matched target cannot be applied as an IDE refactoring.</td>
+                  <td data-label="Reader takeaway">A reported target still needs an executable transformation.</td>
+                </tr>
+                <tr>
+                  <td data-label="Tool or run"><strong>SWE-agent</strong></td>
+                  <td data-label="Outcome"><span class="status-pill bad">Build failed</span></td>
+                  <td data-label="Validation summary">The edited repository does not pass the build check.</td>
+                  <td data-label="Reader takeaway">General-purpose editing struggles with this coordinated refactoring.</td>
+                </tr>
+                <tr>
+                  <td data-label="Tool or run"><strong>JDeodorant</strong></td>
+                  <td data-label="Outcome"><span class="status-pill neutral">No candidate</span></td>
+                  <td data-label="Validation summary">No applicable move-method candidate is produced.</td>
+                  <td data-label="Reader takeaway">Traditional candidate generation may miss this case entirely.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="case-takeaway">
+            <strong>Takeaway</strong>
+            <p>
+              This case shows why AutoRefactor validates a concrete refactoring
+              plan against the repository instead of relying only on a local
+              move-method suggestion.
+            </p>
+            <a class="button button-secondary" href="./feature-envy-sample4-brief-case-study.html">
+              Read brief case study
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="demo">
+        <div class="page-shell demo-layout">
+          <div class="section-intro">
+            <p class="eyebrow">Demonstration</p>
+            <h2>End-to-end demo of the AutoRefactor workflow.</h2>
+            <p>
+              The demo shows AutoRefactor moving from smell context to sketch,
+              Ref-Plan generation, and validation inside the development
+              environment.
+            </p>
+          </div>
+
+          <div class="video-panel">
+            <video
+              class="demo-video"
+              controls
+              preload="metadata"
+              poster="./assets/demo/autorefactor-demo-poster.png"
+            >
+              <source src="./assets/demo/autorefactor-demo.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-tinted" id="artifacts">
+        <div class="page-shell">
+          <div class="section-intro narrow">
+            <p class="eyebrow">Artifacts</p>
+            <h2>Public artifacts for the paper experiments.</h2>
+            <p>
+              Downloadable artifacts for the AutoRefactor experiments, grouped
+              by dataset, project snapshots, results, and the artifact README.
+            </p>
+          </div>
+
+          <div class="artifact-grid">
+            <a href="./downloads/dataset.zip" download>
+              <span>Dataset</span>
+              <h3>Dataset</h3>
+              <p>Fixed Java smell dataset with 691 instances across 9 smell categories and source tables.</p>
+            </a>
+            <a href="./downloads/project-snapshots.zip" download>
+              <span>Projects</span>
+              <h3>Project snapshots</h3>
+              <p>Source snapshots of the 12 Java projects referenced by the dataset, plus local dependencies.</p>
+            </a>
+            <a href="./downloads/results.zip" download>
+              <span>Results</span>
+              <h3>Experiment results</h3>
+              <p>Agent, classic-tool, model-analysis, and human-evaluation result snapshots used in the paper.</p>
+            </a>
+            <a href="./downloads/README.md" download>
+              <span>Guide</span>
+              <h3>Artifact README</h3>
+              <p>Directory layout, included contents, exclusions, and local verification instructions.</p>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="page-shell footer-layout">
+        <span>AutoRefactor Project Page</span>
+        <span>Built as a static GitHub Pages site.</span>
+      </div>
+    </footer>
 
     <script src="./script.js"></script>
   </body>
